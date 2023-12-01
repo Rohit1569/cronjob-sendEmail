@@ -20,7 +20,6 @@
   "dependencies": {
     "@azure/msal-node": "^1.12.0",
     "@google-cloud/storage": "^6.12.0",
-    "@nexsalesdev/market-sizing-data-model": "git+https://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:x-oauth-basic@github.com/nexsalesdev/market-sizing-data-model.git#v1.0.0",
     "auth0": "^3.6.0",
     "axios": "^1.4.0",
     "compression": "^1.7.4",
