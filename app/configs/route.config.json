@@ -1,0 +1,49 @@
+{
+  "routes": [
+    {
+      "route": "/api/v1/user",
+      "method": "GET",
+      "controller": "../components/user/controller/UserController",
+      "isAdminRoute": true,
+      "action":"getAllUsers"
+    },
+         {
+      "route":"/api/v1/send_recovery_email",
+      "method":"POST",
+      "controller": "../components/user/controller/UserController.js",
+      "secured":false,
+      "action":"send_Email"
+    },
+     {
+      "route":"/api/v1/cronjob",
+      "method":"POST",
+      "controller": "../components/user/controller/UserController.js",
+      "secured":false,
+      "action":"cronJobSchedule"
+    },
+    {
+      "route":"/api/v1/getArray",
+      "method":"POST",
+      "controller": "../components/user/controller/UserController.js",
+      "secured":false,
+      "action":"getMailArray"
+    },
+    {
+      "route": "/api/v1/employeeEmail",
+      "method": "GET",
+      "controller": "../components/employee/controller/EmployeeController",
+      "secured": false,
+      "action":"getAllEmployeeEmail"
+    },
+    {
+      "route": "/api/v1/upload",
+      "method": "POST",
+      "controller": "../components/employee/controller/EmployeeController",
+      "secured": false,
+      "action":"getAllEmployeeEmail"
+    }
+    
+  ]
+
+}
+
