@@ -81,24 +81,38 @@ class UserController {
       console.log(req.body, "ffffffffffffffff")
       return res.status(StatusCodes.OK).json({ response })
     } catch (error) {
-      next(error)
+      console.log(); (error)
     }
 
   };
 
-  async cronJobFunction(settingsConfig, req, res, next) {
-    console.log('Task is running...');
-  }
+  // async cronJobFunction(settingsConfig, req, res, next) {
+  //   console.log('Task is running...');
+  // }
 
+  // async cronJobSchedule(settingsConfig, req, res, next) {
+
+  //   cron.schedule('* * * * *', () => {
+  //     this.send_Email();
+  //     console.log('Task is running...');
+  //   });
+  //   console.log("hello");
+  //   return res.status(StatusCodes.OK).json({ yash: "response" })
+  // }
   async cronJobSchedule(settingsConfig, req, res, next) {
-
-    cron.schedule('0 12 28 * *', () => {
-      this.send_Email();
-      console.log('Task is running...');
+    cron.schedule('* * * * *', async () => {
+      try {
+        await this.send_Email(settingsConfig, req, res, next);
+        console.log('Task is running...');
+      } catch (error) {
+        console.error('Error in cron job:', error);
+      }
     });
-    console.log("hello");
-    return res.status(StatusCodes.OK).json({ yash: "response" })
+
+    console.log("Cron job scheduled.");
+    return res.status(StatusCodes.OK).json({ yash: "response" });
   }
+
 
 
 }
